@@ -1,0 +1,11 @@
+---
+:concurrency: 25
+:pidfile: tmp/sidekiq_default.pid
+:verbose: true
+production:
+  # Timeout default to 30 but heroku will kill
+  # a process after 10 seconds on deploy/resart
+  :timeout: 8
+  :verbose: true
+:queues:
+  - default
