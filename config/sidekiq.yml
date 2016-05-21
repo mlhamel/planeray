@@ -3,3 +3,4 @@
 :verbose: true
 :queues:
   - default
+  - jobs

@@ -4,6 +4,7 @@ ruby '2.3.0'
 gem 'rails', '4.2.6'
 gem 'sqlite3'
 gem 'sidekiq', '~> 4.1.1'
+gem 'sinatra', require: nil
 gem 'redis'
 gem 'whenever'
 
