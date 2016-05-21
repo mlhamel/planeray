@@ -1,4 +1,4 @@
-module Dump10190
+module Dump1090
   class RemoteClient
     def latest_data
       response = client.get('/data.json')
