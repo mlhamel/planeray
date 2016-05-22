@@ -12,7 +12,7 @@ module Dump1090
     end
 
     def client
-      @client ||= Faraday.new(url: ENDPOINT) do |connection|
+      @client ||= Faraday.new(url: endpoint) do |connection|
         connection.request :url_encoded
         connection.adapter Faraday.default_adapter
       end

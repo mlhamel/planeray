@@ -9,8 +9,6 @@ require 'webmock/rspec'
 require 'sidekiq/testing'
 Sidekiq::Testing.fake!
 
-require 'sidekiq_unique_jobs/testing'
-
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
