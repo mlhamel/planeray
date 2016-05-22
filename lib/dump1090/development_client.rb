@@ -3,22 +3,22 @@ module Dump1090
     def latest_data
       [
         {
-          flight: "AC6542",
+          flight: 'AC6542',
           latitude: 42,
           longitude: 42,
           altitude: 100,
-          hex: "11",
+          hex: '11',
           speed: 42,
-          track: "some content"
+          track: 'some content'
         },
         {
-          flight: "AC7890",
+          flight: 'AC7890',
           latitude: 42,
           longitude: 42,
           altitude: 100,
-          hex: "11",
+          hex: '11',
           speed: 42,
-          track: "some content"
+          track: 'some content'
         },
       ]
     end

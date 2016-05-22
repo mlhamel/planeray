@@ -29,8 +29,6 @@ RSpec.configure do |config|
   config.order = :random
   Kernel.srand config.seed
 
-  RSpec::Matchers.define_negated_matcher :raise_no_errors, :raise_error
-
   config.before(:each) do
     Sidekiq::Worker.clear_all
   end

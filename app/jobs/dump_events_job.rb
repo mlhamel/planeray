@@ -13,6 +13,6 @@ class DumpEventsJob < BaseJob
   end
 
   def log_event(event)
-    puts "Saved event #{event.id} from flight #{event.flight} at #{event.latitude}/#{event.longitude}"
+    Rails.logger.info "Saved event #{event.id} from flight #{event.flight} at #{event.latitude}/#{event.longitude}"
   end
 end

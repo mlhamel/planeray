@@ -1,0 +1,128 @@
+AllCops:
+  TargetRubyVersion: 2.3
+
+Rails:
+  Enabled: true
+
+require: rubocop-rspec
+
+RSpec/AnyInstance:
+  Enabled: false
+
+RSpec/DescribedClass:
+  Enabled: false
+
+RSpec/FilePath:
+  Enabled: false
+
+RSpec/DescribeClass:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Style/Documentation:
+  Enabled: false
+
+Style/IndentArray:
+  Enabled: false
+
+RSpec/AnyInstance:
+  Enabled: false
+
+RSpec/DescribedClass:
+  Enabled: false
+
+RSpec/FilePath:
+  Enabled: false
+
+RSpec/DescribeClass:
+  Enabled: false
+
+Style/MultilineOperationIndentation:
+  Enabled: false
+
+Style/CaseIndentation:
+  IndentWhenRelativeTo: end
+
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Style/FirstParameterIndentation:
+  EnforcedStyle: consistent
+
+Style/TrailingCommaInLiteral:
+  Enabled: false
+
+Style/TrailingCommaInArguments:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/IndentHash:
+  EnforcedStyle: consistent
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Max: 5
+  CountKeywordArgs: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Lint/EndAlignment:
+  AlignWith: variable
+
+Style/ParallelAssignment:
+  Enabled: false
+
+Style/ModuleFunction:
+  Enabled: false
+
+Style/TrivialAccessors:
+  AllowPredicates: true
+
+Lint/UnusedMethodArgument:
+  AllowUnusedKeywordArguments: true
+
+Style/DoubleNegation:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+BlockDelimiters:
+  Enabled: false
+
+Style/AccessorMethodName:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
+
+Style/IndentArray:
+  Enabled: false

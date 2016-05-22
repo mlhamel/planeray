@@ -12,17 +12,15 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20160521145543) do
-
-  create_table "events", force: :cascade do |t|
-    t.string   "flight"
-    t.decimal  "latitude"
-    t.decimal  "longitude"
-    t.integer  "altitude"
-    t.string   "hex"
-    t.integer  "speed"
-    t.string   "track"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'events', force: :cascade do |t|
+    t.string   'flight'
+    t.decimal  'latitude'
+    t.decimal  'longitude'
+    t.integer  'altitude'
+    t.string   'hex'
+    t.integer  'speed'
+    t.string   'track'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
-
 end

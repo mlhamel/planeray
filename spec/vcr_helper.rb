@@ -6,7 +6,5 @@ VCR.configure do |config|
 
   config.configure_rspec_metadata!
 
-  config.ignore_localhost = true
-
   config.default_cassette_options[:record] = :new_episodes
 end
