@@ -7,6 +7,7 @@ gem 'sidekiq', '~> 4.1.1'
 gem 'sinatra', require: nil
 gem 'redis'
 gem 'faraday'
+gem 'foreman'
 gem 'whenever'
 
 group :production do
