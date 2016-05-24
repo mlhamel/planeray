@@ -1,8 +1,6 @@
 language:
   ruby
-ruby:
-  - "2.3.0"
-install:
-  bundle install
+rvm:
+  2.3
 script:
   bundle exec rspec
