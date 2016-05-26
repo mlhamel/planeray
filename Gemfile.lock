@@ -73,6 +73,7 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.9.0)
     multipart-post (2.0.0)
+    mysql2 (0.3.20)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     parser (2.3.1.0)
@@ -120,6 +121,8 @@ GEM
     raindrops (0.16.0)
     rake (11.1.2)
     redis (3.3.0)
+    redis-namespace (1.5.2)
+      redis (~> 3.0, >= 3.0.4)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
@@ -198,11 +201,13 @@ DEPENDENCIES
   foreman
   forgery
   json
+  mysql2
   pry
   pry-byebug
   pry-rails
   rails (= 4.2.6)
   redis
+  redis-namespace
   rspec
   rspec-example_steps
   rspec-rails

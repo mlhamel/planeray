@@ -8,10 +8,12 @@ gem 'sqlite3'
 gem 'sidekiq', '~> 4.1.1'
 gem 'sinatra', require: nil
 gem 'redis'
+gem 'redis-namespace'
 gem 'faraday'
 gem 'faraday_middleware'
 gem 'foreman'
 gem 'whenever'
+gem 'mysql2'
 
 group :production do
   gem 'unicorn'

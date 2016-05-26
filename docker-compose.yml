@@ -1,0 +1,25 @@
+version: '2'
+services:
+  db:
+    image: mysql:5.7.7
+    volumes_from:
+      - dbdata
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    ports:
+      - "3306:3306"
+  dbdata:
+    image: mysql:5.7.7
+    command: /bin/echo mysql Data container
+  redis:
+    image: redis
+  web:
+    build: .
+    command: bin/run
+    volumes:
+      - .:/planeray
+    environment:
+      RAILS_ENV: production
+    links:
+      - db
+      - redis
