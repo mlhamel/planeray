@@ -1,2 +1,3 @@
-jobs: sidekiq -C config/sidekiq/jobs.yml  -v
-web: bundle exec rails server
+sidekiq: sidekiq config/sidekiq/default.yml
+worker: sidekiq config/sidekiq/worker.yml
+server: bundle exec rails server

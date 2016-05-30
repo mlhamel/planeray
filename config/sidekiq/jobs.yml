@@ -1,9 +1,0 @@
----
-:concurrency: 25
-:pidfile: tmp/sidekiq_jobs.pid
-:verbose: true
-production:
-  :timeout: 8
-  :verbose: true
-:queues:
-  - jobs
