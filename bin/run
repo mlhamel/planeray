@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-sidekiq config/sidekiq/default.yml && sidekiq config/sidekiq/job.yml && bundle exec rails server

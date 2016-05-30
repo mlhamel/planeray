@@ -13,9 +13,21 @@ services:
     command: /bin/echo mysql Data container
   redis:
     image: redis
-  web:
+  server:
     build: .
-    command: bin/run
+    image: mlhamel/planeray
+    command: bin/server
+    volumes:
+      - .:/planeray
+    environment:
+      RAILS_ENV: production
+    links:
+      - db
+    expose:
+      - 3000
+  worker:
+    image: mlhamel/planeray
+    command: bin/worker
     volumes:
       - .:/planeray
     environment:
