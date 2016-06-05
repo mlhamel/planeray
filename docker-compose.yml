@@ -1,4 +1,4 @@
-version: '2'
+version: "2"
 services:
   db:
     image: mysql:5.7.7
@@ -13,6 +13,10 @@ services:
     command: /bin/echo mysql Data container
   redis:
     image: redis
+  dump1090:
+    image: mlhamel/dump1090
+    ports:
+      - "8080:8080"
   server:
     build: .
     image: mlhamel/planeray
@@ -23,15 +27,5 @@ services:
       RAILS_ENV: production
     links:
       - db
-    expose:
-      - 3000
-  worker:
-    image: mlhamel/planeray
-    command: bin/worker
-    volumes:
-      - .:/planeray
-    environment:
-      RAILS_ENV: production
-    links:
-      - db
       - redis
+      - dump1090
