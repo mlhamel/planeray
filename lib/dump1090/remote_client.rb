@@ -2,9 +2,9 @@ module Dump1090
   class RemoteClient
     URL = 'http://127.0.0.1:8080'.freeze
 
-    def latest_data
+    def latest_items
       response = client.get('/data.json')
-      response
+      response.body
     end
 
     private

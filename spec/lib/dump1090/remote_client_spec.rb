@@ -1,12 +1,11 @@
 require 'spec_helper'
 
-RSpec.describe Dump1090::Client do
+RSpec.describe Dump1090::RemoteClient do
   let(:client) { Dump1090::RemoteClient.new }
 
-  context '.latest_data' do
-    it 'returns data from the current planes', vcr: { cassette_name: 'dump10190/remote_client' } do
-      response = client.latest_data
-      expect(response.body).to eq([{
+  context '.latest_items' do
+    it 'returns data of the current planes', vcr: { cassette_name: 'dump10190/remote_client' } do
+      expect(client.latest_items).to eq([{
         'hex' => '400f0b',
         'flight' => '',
         'lat' => 46.88071,
