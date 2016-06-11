@@ -1,9 +1,12 @@
-FROM ruby:2.3.0
+FROM ruby:2.3-alpine
+RUN apk add --update alpine-sdk linux-headers sqlite-dev mysql-dev libxml2-dev libxslt-dev && \
+    rm -rf /var/cache/apk/*
 RUN mkdir /planeray
 WORKDIR /planeray
 ADD . /planeray/
-RUN apt-get update
-RUN bundle install
-RUN bundle exec whenever --write-crontab
+ADD config/crontab /etc/cron.d/planeray-crontab
+RUN chmod 0644 /etc/cron.d/planeray-crontab
+RUN touch /var/log/cron.log
+RUN bundle config build.nokogiri --use-system-libraries && \
+    bundle install
 EXPOSE 3000
-CMD bin/run

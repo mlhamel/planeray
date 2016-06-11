@@ -1,1 +1,1 @@
-sidekiq config/sidekiq/default.yml && sidekiq config/sidekiq/job.yml && bundle exec rails server
+sidekiq config/sidekiq/default.yml && sidekiq config/sidekiq/job.yml && bundle exec rails server && cron && tail -f /var/log/cron.log
