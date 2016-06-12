@@ -4,8 +4,8 @@ module Dump1090
       [
         {
           flight: 'AC6542',
-          latitude: 42,
-          longitude: 42,
+          lat: 42,
+          lon: 42,
           altitude: 100,
           hex: '11',
           speed: 42,
@@ -13,8 +13,8 @@ module Dump1090
         },
         {
           flight: 'AC7890',
-          latitude: 42,
-          longitude: 42,
+          lat: 42,
+          lon: 42,
           altitude: 100,
           hex: '11',
           speed: 42,
