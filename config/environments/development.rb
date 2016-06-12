@@ -1,5 +1,5 @@
 Rails.application.configure do
-  config.use_dump1090_simulator = true
+  config.use_dump1090_simulator = false
 
   config.cache_classes = false
   config.eager_load = false
