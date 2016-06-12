@@ -7,10 +7,10 @@ test:
   database: db/planeray_test.sqlite3
 
 production:
-  adapter: mysql2
+  adapter: postgresql
   pool: 5
   timeout: 5000
-  username: root
-  password: <%= ENV['DB_ENV_MYSQL_ROOT_PASSWORD'] %>
-  host: 'db'
+  host: localhost
+  user: planeray
+  password: planeray
   database: planeray
