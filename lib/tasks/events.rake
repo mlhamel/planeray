@@ -6,7 +6,7 @@ module EventsTasks
 
   namespace :events do
     desc 'Acquire current events into the database'
-    task :acquire, :environment do
+    task acquire: :environment do
       puts "Connecting to rtl_sdr..."
       puts "found #{latest_items.count}"
       latest_items.map do |item|
