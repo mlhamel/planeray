@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-RSpec.describe DumpEventsJob do
+RSpec.describe AcquireEventsJob do
   context '.perform' do
-    let(:job) { DumpEventsJob.new }
+    let(:job) { AcquireEventsJob.new }
     it 'creates 2 new events' do
       expect { job.perform }.to change { Event.count }.by(2)
     end

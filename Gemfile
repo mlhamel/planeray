@@ -12,8 +12,8 @@ gem 'redis-namespace'
 gem 'faraday'
 gem 'faraday_middleware'
 gem 'foreman'
-gem 'whenever'
-gem 'mysql2'
+gem 'pg'
+gem 'crono'
 
 group :production do
   gem 'unicorn'

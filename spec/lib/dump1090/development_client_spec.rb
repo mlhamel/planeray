@@ -7,8 +7,8 @@ RSpec.describe Dump1090::DevelopmentClient do
       [
         {
           flight: 'AC6542',
-          latitude: 42,
-          longitude: 42,
+          lat: 42,
+          lon: 42,
           altitude: 100,
           hex: '11',
           speed: 42,
@@ -16,8 +16,8 @@ RSpec.describe Dump1090::DevelopmentClient do
         },
         {
           flight: 'AC7890',
-          latitude: 42,
-          longitude: 42,
+          lat: 42,
+          lon: 42,
           altitude: 100,
           hex: '11',
           speed: 42,
