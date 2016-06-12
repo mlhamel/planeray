@@ -1,5 +1,3 @@
-require 'dump1090'
-
 module EventsTasks
   extend self
   extend Rake::DSL
