@@ -1,15 +1,17 @@
 version: "2"
 services:
   db:
-    image: mysql:5.7.7
+    image: postgres:9.4
     volumes_from:
       - dbdata
     environment:
-      MYSQL_ROOT_PASSWORD: 123456
+      POSTGRES_DB: planeray
+      POSTGRES_USER: planeray
+      POSTGRES_PASSWORD: planeray
     ports:
-      - "3306:3306"
+      - "5432:5432"
   dbdata:
-    image: mysql:5.7.7
+    image: postgres:9.4
     command: /bin/echo mysql Data container
   redis:
     image: redis

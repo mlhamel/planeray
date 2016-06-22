@@ -1,5 +1,5 @@
 FROM ruby:2.3-alpine
-RUN apk add --update alpine-sdk linux-headers sqlite-dev mysql-dev libxml2-dev libxslt-dev && \
+RUN apk add --update alpine-sdk linux-headers sqlite-dev postgresql-dev libxml2-dev libxslt-dev && \
     rm -rf /var/cache/apk/*
 RUN mkdir /planeray
 WORKDIR /planeray
