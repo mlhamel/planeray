@@ -16,6 +16,7 @@ services:
   redis:
     image: redis
   dump1090:
+    build: modules/mlhamel.dump1090
     image: mlhamel/dump1090
     ports:
       - "8080:8080"
