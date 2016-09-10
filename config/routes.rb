@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'events#index'
+  root to: 'events#index'
 
   require 'sidekiq/web'
   mount Sidekiq::Web, at: '/sidekiq'

@@ -3,9 +3,11 @@ ruby '2.3.1'
 
 gem 'json'
 
-gem 'rails', '4.2.6'
+gem 'rails', '~> 5.0'
 gem 'sqlite3'
-gem 'sidekiq', '~> 4.1.1'
+gem 'sidekiq',
+    git: 'git@github.com:mperham/sidekiq.git',
+    ref: '0168d42ba72268341565d03eb96b6bfd594d8bc1'
 gem 'sinatra', require: nil
 gem 'redis'
 gem 'redis-namespace'

@@ -1,5 +1,5 @@
 unless ENV.key?('REDIS_URL')
-  redis_config = { url: 'redis://redis:6379', namespace: 'sidekiq' }
+  redis_config = { url: 'redis://localhost:6379', namespace: 'sidekiq' }
 
   Sidekiq.configure_server do |config|
     config.redis = redis_config
