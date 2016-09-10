@@ -1,17 +1,20 @@
 class AcquireEventsJob < BaseJob
   def perform
-    items = client.latest_items
-
     puts "Connecting to rtl_sdr..."
     puts "found #{items.count}"
 
-    items.map do |item|
-      event = Event.create!(**item.symbolize_keys)
-      puts "Created a new event for #{event.flight}"
+    items.each do |item|
+      if event = Event.from_json(item)
+        puts "Created a new event for #{event.flight}"
+      end
     end
   end
 
   private
+
+  def items
+    @items ||= client.latest_items
+  end
 
   def client
     @client ||= Dump1090::Client.new
