@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:mperham/sidekiq.git
+  remote: https://github.com/mperham/sidekiq.git
   revision: 0168d42ba72268341565d03eb96b6bfd594d8bc1
   ref: 0168d42ba72268341565d03eb96b6bfd594d8bc1
   specs:

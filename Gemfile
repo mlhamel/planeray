@@ -6,7 +6,7 @@ gem 'json'
 gem 'rails', '~> 5.0'
 gem 'sqlite3'
 gem 'sidekiq',
-    git: 'git@github.com:mperham/sidekiq.git',
+    git: 'https://github.com/mperham/sidekiq.git',
     ref: '0168d42ba72268341565d03eb96b6bfd594d8bc1'
 gem 'sinatra', require: nil
 gem 'redis'
