@@ -3,18 +3,18 @@
  * Copyright (C) 2012 by Salvatore Sanfilippo <antirez@gmail.com>
  *
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
  * met:
- * 
+ *
  *  *  Redistributions of source code must retain the above copyright
  *     notice, this list of conditions and the following disclaimer.
  *
  *  *  Redistributions in binary form must reproduce the above copyright
  *     notice, this list of conditions and the following disclaimer in the
  *     documentation and/or other materials provided with the distribution.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
@@ -43,6 +43,7 @@
 #include <sys/stat.h>
 #include <sys/ioctl.h>
 #include <sys/select.h>
+#include <time.h>
 #include "rtl-sdr.h"
 #include "anet.h"
 
@@ -804,7 +805,7 @@ int bruteForceAP(unsigned char *msg, struct modesMessage *mm) {
         aux[lastbyte] ^= crc & 0xff;
         aux[lastbyte-1] ^= (crc >> 8) & 0xff;
         aux[lastbyte-2] ^= (crc >> 16) & 0xff;
-        
+
         /* If the obtained address exists in our cache we consider
          * the message valid. */
         addr = aux[lastbyte] | (aux[lastbyte-1] << 8) | (aux[lastbyte-2] << 16);
@@ -1211,7 +1212,7 @@ void displayModesMessage(struct modesMessage *mm) {
                 printf("    Heading: %d", mm->heading);
             }
         } else {
-            printf("    Unrecognized ME type: %d subtype: %d\n", 
+            printf("    Unrecognized ME type: %d subtype: %d\n",
                 mm->metype, mm->mesub);
         }
     } else {
@@ -1267,7 +1268,7 @@ int detectOutOfPhase(uint16_t *m) {
  * When messages are out of phase there is more uncertainty in
  * sequences of the same bit multiple times, since 11111 will be
  * transmitted as continuously altering magnitude (high, low, high, low...)
- * 
+ *
  * However because the message is out of phase some part of the high
  * is mixed in the low part, so that it is hard to distinguish if it is
  * a zero or a one.
@@ -1315,7 +1316,7 @@ void detectModeS(uint16_t *m, uint32_t mlen) {
      * 1.0 - 1.5 usec: second impulse.
      * 3.5 - 4   usec: third impulse.
      * 4.5 - 5   usec: last impulse.
-     * 
+     *
      * Since we are sampling at 2 Mhz every sample in our magnitude vector
      * is 0.5 usec, so the preamble will look like this, assuming there is
      * an impulse at offset 0 in the array:
@@ -1435,13 +1436,13 @@ good_preamble:
         /* Pack bits into bytes */
         for (i = 0; i < MODES_LONG_MSG_BITS; i += 8) {
             msg[i/8] =
-                bits[i]<<7 | 
-                bits[i+1]<<6 | 
-                bits[i+2]<<5 | 
-                bits[i+3]<<4 | 
-                bits[i+4]<<3 | 
-                bits[i+5]<<2 | 
-                bits[i+6]<<1 | 
+                bits[i]<<7 |
+                bits[i+1]<<6 |
+                bits[i+2]<<5 |
+                bits[i+3]<<4 |
+                bits[i+4]<<3 |
+                bits[i+5]<<2 |
+                bits[i+6]<<1 |
                 bits[i+7];
         }
 
@@ -2091,10 +2092,10 @@ int hexDigitVal(int c) {
  * raw hex format like: *8D4B969699155600E87406F5B69F;
  * The string is supposed to be at the start of the client buffer
  * and null-terminated.
- * 
+ *
  * The message is passed to the higher level layers, so it feeds
  * the selected screen output, the network output and so forth.
- * 
+ *
  * If the message looks invalid is silently discarded.
  *
  * The function always returns 0 (success) to the caller as there is
@@ -2143,6 +2144,9 @@ char *aircraftsToJson(int *len) {
     p += l; buflen -= l;
     while(a) {
         int altitude = a->altitude, speed = a->speed;
+        double actual_time_sec;
+
+        actual_time_sec = difftime(a->seen,0);
 
         /* Convert units to metric if --metric was specified. */
         if (Modes.metric) {
@@ -2154,9 +2158,9 @@ char *aircraftsToJson(int *len) {
             l = snprintf(p,buflen,
                 "{\"hex\":\"%s\", \"flight\":\"%s\", \"lat\":%f, "
                 "\"lon\":%f, \"altitude\":%d, \"track\":%d, "
-                "\"speed\":%d},\n",
+                "\"speed\":%d, \"seen\": %g},\n",
                 a->hexaddr, a->flight, a->lat, a->lon, a->altitude, a->track,
-                a->speed);
+                a->speed, actual_time_sec);
             p += l; buflen -= l;
             /* Resize if needed. */
             if (buflen < 256) {
@@ -2632,5 +2636,3 @@ int main(int argc, char **argv) {
     rtlsdr_close(Modes.dev);
     return 0;
 }
-
-
