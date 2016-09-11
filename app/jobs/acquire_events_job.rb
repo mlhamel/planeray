@@ -3,13 +3,13 @@ class AcquireEventsJob < BaseJob
     puts "Connecting to rtl_sdr..."
     puts "found #{items.count}"
 
-    items.each do |item|
-      if plane = Plane.find_or_create_by(flight: item[:flight])
-        next if plane.seen?
+    items.map do |item|
+      plane = Plane.from_json(item)
 
-        if event = Event.from_json(item)
-          puts "Created a new event for #{event.flight}"
-        end
+      next if plane.seen_today?
+
+      if event = Event.from_json(item)
+        puts "Created a new event for #{event.flight}"
       end
     end
   end
