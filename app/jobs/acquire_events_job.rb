@@ -4,8 +4,12 @@ class AcquireEventsJob < BaseJob
     puts "found #{items.count}"
 
     items.each do |item|
-      if event = Event.from_json(item)
-        puts "Created a new event for #{event.flight}"
+      if plane = Plane.find_or_create_by(flight: item[:flight])
+        next if plane.seen?
+
+        if event = Event.from_json(item)
+          puts "Created a new event for #{event.flight}"
+        end
       end
     end
   end
