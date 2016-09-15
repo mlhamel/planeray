@@ -6,8 +6,11 @@ Bundler.require(*Rails.groups)
 
 module Planeray
   class Application < Rails::Application
-    config.active_record.raise_in_transactional_callbacks = true
     config.autoload_paths << Rails.root.join('lib')
     config.active_job.queue_adapter = :sidekiq
+
+    config.generators do |g|
+      g.test_framework :rspec
+    end
   end
 end

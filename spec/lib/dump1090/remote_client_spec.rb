@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 RSpec.describe Dump1090::RemoteClient do
   let(:client) { Dump1090::RemoteClient.new }
 

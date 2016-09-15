@@ -5,11 +5,19 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'vcr_helper'
 require 'webmock/rspec'
-
 require 'sidekiq/testing'
+
 Sidekiq::Testing.fake!
 
 ActiveRecord::Migration.maintain_test_schema!
+
+module ActiveResourceContext
+  extend RSpec::SharedContext
+
+  after(:each) do
+    Rails.cache.clear
+  end
+end
 
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 RSpec.describe Dump1090::DevelopmentClient do
   context '.latest_items' do
     let(:client) { Dump1090::DevelopmentClient.new }

@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 RSpec.describe AcquireEventsJob do
   context '.perform' do
     let(:job) { AcquireEventsJob.new }

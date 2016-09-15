@@ -1,10 +1,10 @@
 class Event < ActiveRecord::Base
   has_one :plane
 
-  validate :validate_duplicate_events
+  validate :validate_duplicate_events, on: :create
 
   def self.from_json(data)
-    create(**data.symbolize_keys)
+    create!(**data.symbolize_keys)
   end
 
   def self.recents
