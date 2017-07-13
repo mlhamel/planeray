@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Icao24:</strong>
+  <%= @state.icao24 %>
+</p>
+
+<p>
+  <strong>Callsign:</strong>
+  <%= @state.callsign %>
+</p>
+
+<p>
+  <strong>Origin country:</strong>
+  <%= @state.origin_country %>
+</p>
+
+<%= link_to 'Edit', edit_state_path(@state) %> |
+<%= link_to 'Back', states_path %>

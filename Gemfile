@@ -1,21 +1,20 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 
+gem 'crono'
+gem 'faraday_middleware'
+gem 'faraday'
+gem 'foreman'
 gem 'json'
-
+gem 'pg'
 gem 'rails', '~> 5.0'
-gem 'sqlite3'
+gem 'redis-namespace'
+gem 'redis'
 gem 'sidekiq',
     git: 'https://github.com/mperham/sidekiq.git',
     ref: '0168d42ba72268341565d03eb96b6bfd594d8bc1'
 gem 'sinatra', require: nil
-gem 'redis'
-gem 'redis-namespace'
-gem 'faraday'
-gem 'faraday_middleware'
-gem 'foreman'
-gem 'pg'
-gem 'crono'
+gem 'tzinfo-data'
 
 group :production do
   gem 'unicorn'

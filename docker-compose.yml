@@ -1,34 +1,18 @@
-version: "2"
+version: "3"
 services:
-  db:
-    image: postgres:9.4
-    volumes_from:
-      - dbdata
-    environment:
-      POSTGRES_DB: planeray
-      POSTGRES_USER: planeray
-      POSTGRES_PASSWORD: planeray
+  postgres:
+    image: postgres
     ports:
       - "5432:5432"
-  dbdata:
-    image: postgres:9.4
-    command: /bin/echo mysql Data container
   redis:
-    image: redis
-  dump1090:
-    build: modules/mlhamel.dump1090
-    image: mlhamel/dump1090
+    image: redis:latest
     ports:
-      - "8080:8080"
-  server:
-    build: .
-    image: mlhamel/planeray
-    command: bin/server
-    volumes:
-      - .:/planeray
-    environment:
-      RAILS_ENV: production
-    links:
-      - db
-      - redis
-      - dump1090
+      - "6379:6379"
+  # web:
+  #   build: .
+  #   command: bundle exec rails s -p 3000 -b '0.0.0.0'
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - postgres
+  #     - redis

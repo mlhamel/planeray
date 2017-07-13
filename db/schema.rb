@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160911034245) do
+ActiveRecord::Schema.define(version: 20170613020606) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "crono_jobs", force: :cascade do |t|
     t.string   "job_id",            null: false
@@ -20,29 +23,10 @@ ActiveRecord::Schema.define(version: 20160911034245) do
     t.text     "args"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.index ["job_id"], name: "index_crono_jobs_on_job_id", unique: true
+    t.index ["job_id"], name: "index_crono_jobs_on_job_id", unique: true, using: :btree
   end
 
-  create_table "events", force: :cascade do |t|
-    t.string   "flight"
-    t.decimal  "lat"
-    t.decimal  "lon"
-    t.integer  "altitude"
-    t.string   "hex"
-    t.integer  "speed"
-    t.string   "track"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.datetime "last_seen"
-    t.integer  "plane_id"
-    t.index ["plane_id"], name: "index_events_on_plane_id"
-  end
-
-  create_table "planes", force: :cascade do |t|
-    t.string   "flight"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["flight"], name: "index_planes_on_flight", unique: true
+  create_table "states", force: :cascade do |t|
   end
 
 end

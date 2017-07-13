@@ -8,7 +8,4 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.active_support.deprecation = :log
   config.active_record.migration_error = :page_load
-  config.assets.debug = true
-  config.assets.digest = true
-  config.assets.raise_runtime_errors = true
 end

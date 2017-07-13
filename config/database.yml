@@ -1,16 +1,12 @@
-development:
-  adapter: sqlite3
-  database: db/planeray_development.sqlite3
+development: &default
+  adapter: postgresql
+  encoding: unicode
+  database: myapp_development
+  pool: 5
+  username: postgres
+  password:
+  host: localhost
 
 test:
-  adapter: sqlite3
-  database: db/planeray_test.sqlite3
-
-production:
-  adapter: postgresql
-  pool: 5
-  timeout: 5000
-  host: localhost
-  user: planeray
-  password: planeray
-  database: planeray
+  <<: *default
+  database: myapp_test

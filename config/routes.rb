@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :states
   root to: 'events#index'
 
   require 'sidekiq/web'

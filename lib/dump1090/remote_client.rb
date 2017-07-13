@@ -1,7 +1,6 @@
+# frozen_string_literal: true
 module Dump1090
   class RemoteClient
-    URL = 'http://127.0.0.1:8080'.freeze
-
     def latest_items
       response = client.get('/data.json')
       response.body
@@ -10,7 +9,7 @@ module Dump1090
     private
 
     def endpoint
-      URL
+      'http://127.0.0.1:8080'
     end
 
     def client
